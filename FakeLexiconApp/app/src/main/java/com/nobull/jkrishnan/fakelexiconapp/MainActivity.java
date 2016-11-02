@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -111,9 +112,16 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject successObject= successArray.getJSONObject(0);
                     int status=successObject.getInt("status");
                     if(status==1){
-
+                        int id= successObject.getInt("id");
+                        String username= successObject.getString("username");
+                        int roleid=successObject.getInt("roleid");
+                        Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_LONG).show();
                     }
+                } else {
+                    Toast.makeText(getApplicationContext(),"wrong",Toast.LENGTH_LONG);
                 }
+            } catch (Exception e){
+
             }
         }
 
